@@ -1,0 +1,20 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+  @apply flex items-center justify-between w-full fixed top-0 z-10 h-[5.4rem] p-[3.3rem];
+}
+
+.navlink {
+  @apply text-2xl font-semibold text-gray-800 hover:text-gray-500 mx-[0.8rem] px-[0.8rem]  ml-8 py-[0.9rem] rounded-[0.5rem] bg-transparent transition-all duration-500;
+}
