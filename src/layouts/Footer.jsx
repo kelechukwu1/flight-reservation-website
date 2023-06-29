@@ -17,12 +17,12 @@ const Footer = () => {
 
 						<div className="lower px-10">
 							<div className="topic">Contact Us</div>
-							<div className="text-2xl font-semibold">
+							<div className="text-2xl">
 								<Link to="+2349063646331">+2349063646331</Link>
 							</div>
 
-							<div className="text-2xl items-center font-semibold">
-								<Link to="https://www.gmail.com/paparazzip8@gmail.com">
+							<div className="text-2xl items-center">
+								<Link to="https://www.gmail.com/paparazzip8">
 									paparazzip8@gmail.com
 								</Link>
 							</div>
@@ -31,13 +31,13 @@ const Footer = () => {
 
 					<div className="middle box">
 						<div className="topic px-10">Our Services</div>
-						<div className="text-2xl px-10 font-semibold">
+						<div className="text-2xl px-10">
 							<Link to="#">Chatter Services</Link>
 						</div>
-						<div className="text-2xl px-10 font-semibold">
+						<div className="text-2xl px-10">
 							<Link to="#">Cross Travels</Link>
 						</div>
-						<div className="text-2xl px-10 font-semibold">
+						<div className="text-2xl px-10">
 							<Link to="#">Inflight Magazines</Link>
 						</div>
 					</div>
