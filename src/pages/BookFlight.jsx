@@ -7,7 +7,7 @@ const BookFlight = () => {
 			<div>
 				<img
 					className="mx-auto bg-no-repeat h-72 bg-center rounded-full bg-contain"
-					src="./public/img/booked.png"
+					src="/booked.png"
 					alt="booked image"
 				/>
 			</div>

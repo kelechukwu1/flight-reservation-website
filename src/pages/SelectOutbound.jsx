@@ -73,7 +73,7 @@ const SelectOutbound = () => {
 								<div className="flex justify-around items-center gap-2">
 									<div className="text-center items-center">
 										<img
-											src="./public/img/5.jpg"
+											src="/5.jpg"
 											alt="flyASAP logo"
 											className="align-top w-20"
 										/>
@@ -100,7 +100,7 @@ const SelectOutbound = () => {
 								<div className="flex justify-around items-center gap-2">
 									<div className="items-center text-center">
 										<img
-											src="./public/img/5.jpg"
+											src="/5.jpg"
 											alt="flyASAP logo"
 											className="align-top w-20"
 										/>

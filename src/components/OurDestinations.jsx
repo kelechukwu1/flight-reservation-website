@@ -2,12 +2,7 @@ import React from "react";
 import Carousel from "./Carousel";
 
 const OurDestinations = () => {
-	const images = [
-		"./public/img/3.jpg",
-		"./public/img/4.jpg",
-		"./public/img/3.jpg",
-		"./public/img/4.jpg",
-	];
+	const images = ["/3.jpg", "/4.jpg", "/3.jpg", "/4.jpg"];
 	return (
 		<div className="bg-gray-200 p-20 md:justify-between items-center rounded md:grid md:grid-cols-2">
 			{/* <div className="flex"> */}

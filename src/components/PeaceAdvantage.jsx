@@ -23,7 +23,7 @@ const PeaceAdvantage = () => {
 
 				<div className="max-w-xl md:ml-[5rem] md:px-10 md:w-full">
 					<div>
-						<img src="./public/img/2.jpg" className="w-full mt-5 rounded" />
+						<img src="/2.jpg" className="w-full mt-5 rounded" />
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,7 @@ const PayStack = () => {
 			<div>
 				<img
 					className="mx-auto bg-no-repeat h-72 bg-center rounded-full bg-contain"
-					src="./public/img/visa2.jpg"
+					src="/visa2.jpg"
 					alt="booked image"
 				/>
 			</div>

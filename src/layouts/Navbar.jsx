@@ -40,7 +40,7 @@ const NavBar = () => {
 									>
 										{/* logo */}
 										<img
-											src="./public/img/5.jpg"
+											src="/5.jpg"
 											alt="flyASAP logo"
 											className="d-inline-block align-top w-16"
 										/>
