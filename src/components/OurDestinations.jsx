@@ -8,7 +8,7 @@ const OurDestinations = () => {
 			{/* <div className="flex"> */}
 			<div className="md:ml-[5rem]">
 				<div className="md:ml-[5rem]">
-					<h1 className="font-semibold text-2xl p-3 md:text-4xl">
+					<h1 className="font-semibold text-4xl py-4  md:text-4xl">
 						Our Destinations
 					</h1>
 				</div>
