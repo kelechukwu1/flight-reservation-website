@@ -130,7 +130,7 @@ const BookFlightForm = () => {
 									value={formik.values.departureDate}
 									type="date"
 									name="departureDate"
-									className="p-2 border-2 font-semibold w-full mr-2 md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									className="p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								/>
 							</div>
 							<div className="mt-3">
@@ -145,7 +145,7 @@ const BookFlightForm = () => {
 									value={formik.values.returnDate}
 									type="date"
 									name="returnDate"
-									className="p-2 border-2 font-semibold w-full mr-2 md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									className="p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								/>
 							</div>
 						</div>
