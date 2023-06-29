@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 
 const FlightDetails = () => {
 	const user = useSelector((state) => state.users.value);
-	// const flightType = (user[user.length - 1].flightType);
-	const flyingFrom = user[user.length - 1].flyingFrom;
-	const flyingTo = user[user.length - 1].flyingTo;
-	const adult = user[user.length - 1].adult;
-	const child = user[user.length - 1].child;
-	const infant = user[user.length - 1].infant;
+	const { flyingFrom, flyingTo, adult, child, infant } =
+		user?.[user.length - 1];
 	const adultNumber = parseInt(adult);
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
