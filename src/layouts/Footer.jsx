@@ -17,19 +17,13 @@ const Footer = () => {
 
 						<div className="lower px-10">
 							<div className="topic">Contact Us</div>
-							<div className="phone">
-								<Link to="+2349063646331">
-									<i className="bx bx-phone text-2xl font-semibold">
-										+2349063646331
-									</i>
-								</Link>
+							<div className="text-2xl font-semibold">
+								<Link to="+2349063646331">+2349063646331</Link>
 							</div>
 
-							<div className="email">
+							<div className="text-2xl items-center font-semibold">
 								<Link to="https://www.gmail.com/paparazzip8@gmail.com">
-									<i className="bx bx-envelope text-2xl items-center font-semibold">
-										paparazzip8@gmail.com
-									</i>
+									paparazzip8@gmail.com
 								</Link>
 							</div>
 						</div>
