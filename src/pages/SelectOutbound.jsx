@@ -3,13 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SelectOutbound = () => {
 	const user = useSelector((state) => state.users.value);
-	console.log(user);
+	const { flyingFrom, flyingTo, adult, child, infant } =
+		user?.[user.length - 1];
 	// const flightType = (user[user.length - 1].flightType);
-	const flyingFrom = user[user.length - 1].flyingFrom;
-	const flyingTo = user[user.length - 1].flyingTo;
-	const adult = user[user.length - 1].adult;
-	const child = user[user.length - 1].child;
-	const infant = user[user.length - 1].infant;
+	// const flyingFrom = user[user.length - 1].flyingFrom;
+	// const flyingTo = user[user.length - 1].flyingTo;
+	// const adult = user[user.length - 1].adult;
+	// const child = user[user.length - 1].child;
+	// const infant = user[user.length - 1].infant;
 	const adultNumber = parseInt(adult);
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
