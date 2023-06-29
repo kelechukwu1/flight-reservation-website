@@ -54,22 +54,32 @@ const Footer = () => {
 							<input type="text" placeholder="Enter email address" />
 							<input type="submit" name="" value="send" />
 
-							<div className="media-icons">
-								<a href="#">
-									<i className="bx bxl-facebook text-6xl"></i>
-								</a>
-								<a href="#">
-									<i className="bx bxl-whatsapp text-6xl"></i>
-								</a>
-								<a href="#">
-									<i className="bx bxl-linkedin text-6xl"></i>
-								</a>
-								<a href="#">
-									<i className="bx bxl-instagram text-6xl"></i>
-								</a>
-								<a href="#">
-									<i className="bx bxl-slack text-6xl"></i>
-								</a>
+							<div className="media-icons flex gap-4">
+								<div>
+									<a href="#">
+										<i className="bx bxl-facebook text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-whatsapp text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-linkedin text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-instagram text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-slack text-6xl"></i>
+									</a>
+								</div>
 							</div>
 						</form>
 					</div>

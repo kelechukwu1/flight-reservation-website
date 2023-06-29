@@ -19,7 +19,7 @@ const NewsLetter = () => {
 						/>
 					</div>
 					<div>
-						<button className="py-8 px-32 text-white w-full my-2 text-3xl md:px-14 hover:bg-slate-950 border-blue-800 border-2  bg-slate-900 rounded transition ease-in-out duration-500">
+						<button className="py-8 px-32 text-white w-full my-2 text-3xl md:px-14 hover:bg-slate-950  bg-slate-900 rounded transition ease-in-out duration-500">
 							Subscribe
 						</button>
 					</div>
