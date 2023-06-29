@@ -9,7 +9,7 @@ const Footer = () => {
 					<div className="left box">
 						<div className="upper">
 							<div className="topic px-10">About Us</div>
-							<p className="text-2xl px-10 font-semibold">
+							<p className="text-2xl px-10">
 								We are determined to provide efficient centralized flight
 								reservation system that gives you the best services.
 							</p>
