@@ -10,9 +10,10 @@ const FlightDetails = () => {
 	const adult = user[user.length - 1].adult;
 	const child = user[user.length - 1].child;
 	const infant = user[user.length - 1].infant;
+	const adultNumber = parseInt(adult);
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
-	const travelers = adult + childNumber + infantNumber;
+	const travelers = adultNumber + childNumber + infantNumber;
 	const price = 66800 * travelers;
 	const departureDate = user[user.length - 1].departureDate;
 	const returnDate = user[user.length - 1].returnDate;
