@@ -6,7 +6,8 @@ const localStorageUser =
     : [];
 
 const initialState = {
-  value: localStorageUser,
+  // value: localStorageUser,
+  value: [],
 };
 export const userSlice = createSlice({
   name: "user",

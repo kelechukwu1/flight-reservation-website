@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 const SelectOutbound = () => {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.users.value);
   const { flyingFrom, flyingTo, adult, child, infant } =
     user?.[user.length - 1];
   const adultNumber = parseInt(adult);
