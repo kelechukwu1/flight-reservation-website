@@ -13,7 +13,7 @@ const BookFlight = () => {
 				/>
 			</div>
 			<div className="m-14 md:mx-36 lg:mx-[20rem]">
-				<div className="text-center items-center text-gray-400 border rounded p-20 lg:px-[10rem]">
+				<div className="text-center items-center text-gray-400 border rounded p-10 lg:px-[10rem]">
 					<h1 className="text-white text-3xl">Your booking is confirmed.</h1>
 					<div className="text-2xl p-3">
 						<div>
