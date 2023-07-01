@@ -54,7 +54,9 @@ const FlightDetails = () => {
 						<p className="text-2xl">{infant}</p>
 					</div>
 				</div>
-				<hr />
+				<div className="text-center items-center justify-center">
+					<hr className="mx-12" />
+				</div>
 				<div className="m-4">
 					<h1 className="mx-4 my-2 text-3xl font-semibold">{`${flyingFromSplit[0]} to ${flyingToSplit[0]}`}</h1>
 					<div className="flex justify-between mx-4">
@@ -71,7 +73,9 @@ const FlightDetails = () => {
 						<p className="text-2xl">{returnDate}</p>
 					</div>
 				</div>
-				<hr />
+				<div className="text-center items-center justify-center">
+					<hr className="mx-12" />
+				</div>
 				<div className="m-4">
 					<h1 className="mx-4 my-2 text-3xl font-semibold">Summary</h1>
 					<div className="flex justify-between mx-4">
@@ -92,7 +96,9 @@ const FlightDetails = () => {
 						<p className="text-2xl">--</p>
 					</div>
 				</div>
-				<hr />
+				<div className="text-center items-center justify-center">
+					<hr className="mx-12" />
+				</div>
 				<div className="items-center text-center m-4">
 					<h1 className="text-3xl font-semibold">Outstanding Amount</h1>
 					<h1 className="text-4xl font-bold pt-3">
