@@ -11,7 +11,7 @@ const BookFlightForm = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			flightType: "Round Trip",
+			flightType: "One-Way",
 			flyingFrom: "Owerri (QOW)",
 			flyingTo: "Lagos (LOS)",
 			departureDate: "",
@@ -56,8 +56,8 @@ const BookFlightForm = () => {
 								name="flightType"
 								className="w-full p-2 border-2 font-semibold mr-2 h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 							>
-								<option>Round Trip</option>
 								<option>One-Way</option>
+								<option>Round Trip</option>
 								<option>Multi-City</option>
 							</select>
 						</div>

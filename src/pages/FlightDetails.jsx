@@ -10,7 +10,14 @@ const FlightDetails = () => {
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
 	const travelers = adultNumber + childNumber + infantNumber;
-	const price = 66800 * travelers;
+	const price = 40000 * travelers;
+	const formattedPrice = price.toLocaleString("en-US");
+	const tax = 6700;
+	const formattedTax = tax.toLocaleString("en-US");
+	const surCharge = 50000;
+	const formattedsurCharge = surCharge.toLocaleString("en-US");
+	const outStandingAmount = price + tax + surCharge;
+	const formattedNumber = outStandingAmount.toLocaleString("en-US");
 	const departureDate = user[user.length - 1].departureDate;
 	const returnDate = user[user.length - 1].returnDate;
 	//split the dates and airport abbreviations
@@ -69,12 +76,16 @@ const FlightDetails = () => {
 					<h1 className="mx-4 my-2 text-3xl font-semibold">Summary</h1>
 					<div className="flex justify-between mx-4">
 						<p className="text-2xl">Total Base Fare:</p>
-						<p className="text-2xl">&#x20A6;{price}.00</p>
+						<p className="text-2xl">&#x20A6;{formattedPrice}.00</p>
 					</div>
 
 					<div className="flex justify-between mx-4">
 						<p className="text-2xl">Total Tax:</p>
-						<p className="text-2x2l">&#x20A6;3000</p>
+						<p className="text-2x2l">&#x20A6;{formattedTax}</p>
+					</div>
+					<div className="flex justify-between mx-4">
+						<p className="text-2xl">Total Surcharge:</p>
+						<p className="text-2x2l">&#x20A6;{formattedsurCharge}</p>
 					</div>
 					<div className="flex justify-between mx-4">
 						<p className="text-2xl">Discount:</p>
@@ -84,7 +95,9 @@ const FlightDetails = () => {
 				<hr />
 				<div className="items-center text-center m-4">
 					<h1 className="text-3xl font-semibold">Outstanding Amount</h1>
-					<h1 className="text-4xl font-bold pt-3">&#x20A6;{price}.00</h1>
+					<h1 className="text-4xl font-bold pt-3">
+						&#x20A6;{formattedNumber}.00
+					</h1>
 				</div>
 			</div>
 			<Link to="/payment">

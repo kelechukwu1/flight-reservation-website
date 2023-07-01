@@ -9,7 +9,11 @@ const PaymentOption = () => {
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
 	const travelers = adultNumber + childNumber + infantNumber;
-	const price = 66800 * travelers;
+	const price = 40000 * travelers;
+	const tax = 6700;
+	const surCharge = 50000;
+	const outStandingAmount = price + tax + surCharge;
+	const formattedoutStanding = outStandingAmount.toLocaleString("en-US");
 
 	const [checked, setChecked] = useState(false);
 
@@ -25,7 +29,7 @@ const PaymentOption = () => {
 			<div className="rounded-xl shadow m-10">
 				<div className="items-center text-center py-4 space-y-4">
 					<h1 className="text-3xl">Total Payable</h1>
-					<h1 className="text-4xl">&#x20A6;{price}.00</h1>
+					<h1 className="text-4xl">&#x20A6;{formattedoutStanding}.00</h1>
 				</div>
 				<hr />
 				<div className="p-5 flex gap-4">
