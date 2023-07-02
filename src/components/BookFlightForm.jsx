@@ -137,7 +137,7 @@ const BookFlightForm = () => {
 									className={
 										errors.departureDate && touched.departureDate
 											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
-											: "p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+											: "p-2 border-2 font-semibold w-[12rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 									}
 								/>
 								{errors.departureDate && touched.departureDate && (
@@ -163,7 +163,7 @@ const BookFlightForm = () => {
 									className={
 										errors.returnDate && touched.returnDate
 											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
-											: "p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+											: "p-2 border-2 font-semibold w-[12rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 									}
 								/>
 								{errors.returnDate && touched.returnDate && (
