@@ -120,57 +120,66 @@ const BookFlightForm = () => {
 							</div>
 						</div>
 
-						<div className="flex gap-3 justify-center items-center">
-							<div className="mt-3">
-								<label
-									htmlFor="departureDate"
-									className="block text-xl mb-2 text-white md:text-2xl font-semibold"
-								>
-									Departure Date
-								</label>
-								<input
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.departureDate}
-									type="date"
-									name="departureDate"
-									className={
-										errors.departureDate && touched.departureDate
-											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
-											: "p-2 border-2 font-semibold w-[12rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
-									}
-								/>
-								{errors.departureDate && touched.departureDate && (
-									<div className="text-red-500 text-xl p-2">
-										{errors.departureDate}
-									</div>
-								)}
+						<div className="w-full flex gap-3 justify-center items-center">
+							<div className="mt-3 w-[1/2]">
+								<div>
+									<label
+										htmlFor="departureDate"
+										className="block text-xl mb-2 text-white md:text-2xl font-semibold"
+									>
+										Departure Date
+									</label>
+								</div>
+								<div>
+									<input
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.departureDate}
+										type="date"
+										name="departureDate"
+										className={
+											errors.departureDate && touched.departureDate
+												? "border-red-500 p-2 border-2 font-semibold h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
+												: "p-2 border-2 font-semibold h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+										}
+									/>
+									{errors.departureDate && touched.departureDate && (
+										<div className="text-red-500 text-xl p-2">
+											{errors.departureDate}
+										</div>
+									)}
+								</div>
 							</div>
 
-							<div className="mt-3">
-								<label
-									htmlFor="returnDate"
-									className="block text-xl mb-2 text-white md:text-2xl font-semibold"
-								>
-									Return Date
-								</label>
-								<input
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.returnDate}
-									type="date"
-									name="returnDate"
-									className={
-										errors.returnDate && touched.returnDate
-											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
-											: "p-2 border-2 font-semibold w-[12rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
-									}
-								/>
-								{errors.returnDate && touched.returnDate && (
-									<div className="text-red-500 text-xl p-2">
-										{errors.returnDate}
-									</div>
-								)}
+							<div className="mt-3 w-[1/2]">
+								<div>
+									<label
+										htmlFor="returnDate"
+										className="block text-xl mb-2 text-white md:text-2xl font-semibold"
+									>
+										Return Date
+									</label>
+								</div>
+								<div>
+									<input
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.returnDate}
+										type="date"
+										name="returnDate"
+										className={
+											errors.returnDate && touched.returnDate
+												? "border-red-500 p-2 border-2 font-semibold  h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
+												: "p-2 border-2 font-semibold  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+										}
+									/>
+
+									{errors.returnDate && touched.returnDate && (
+										<div className="text-red-500 text-xl p-2">
+											{errors.returnDate}
+										</div>
+									)}
+								</div>
 							</div>
 						</div>
 
