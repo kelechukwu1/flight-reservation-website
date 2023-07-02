@@ -3,32 +3,35 @@ import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store";
 import { v4 as uuidv4 } from "uuid";
+import { basicSchema } from "../schemas/Schema";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
 
-	const formik = useFormik({
-		initialValues: {
-			flightType: "One-Way",
-			flyingFrom: "Owerri (QOW)",
-			flyingTo: "Lagos (LOS)",
-			departureDate: "",
-			returnDate: "",
-			adult: 1,
-			child: 0,
-			infant: 0,
-		},
+	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
+		useFormik({
+			initialValues: {
+				flightType: "One-Way",
+				flyingFrom: "Owerri (QOW)",
+				flyingTo: "Lagos (LOS)",
+				departureDate: "",
+				returnDate: "",
+				adult: 1,
+				child: 0,
+				infant: 0,
+			},
+			//validations
+			validationSchema: basicSchema,
 
-		//form submit
-		onSubmit: (values) => {
-			// formik.initialValues()
-			dispatch(addUser({ ...values, id }));
-			navigate("selectOutbound");
-		},
-	});
-
+			//form submit
+			onSubmit: (values) => {
+				dispatch(addUser({ ...values, id }));
+				navigate("selectOutbound");
+			},
+		});
+	console.log(errors);
 	return (
 		<div className="bg-slate-900 p-12 rounded-es-3xl rounded-tr-3xl bg-center">
 			<div className="w-full lg:w-[80rem]  md:w-[65rem] md:h-[50rem] md:my-[5rem]  md:mx-[auto] shadow-lg rounded-md p-6">
@@ -39,7 +42,7 @@ const BookFlightForm = () => {
 				</div>
 				<hr />
 				<Form
-					onSubmit={formik.handleSubmit}
+					onSubmit={handleSubmit}
 					className="justify-center items-center w-full"
 				>
 					<div className="flex justify-center">
@@ -51,8 +54,8 @@ const BookFlightForm = () => {
 								Flight type
 							</label>
 							<select
-								onChange={formik.handleChange}
-								value={formik.values.flightType}
+								onChange={handleChange}
+								value={values.flightType}
 								name="flightType"
 								className="w-full p-2 border-2 font-semibold mr-2 h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 							>
@@ -72,8 +75,8 @@ const BookFlightForm = () => {
 									Flying From
 								</label>
 								<select
-									value={formik.values.flyingFrom}
-									onChange={formik.handleChange}
+									value={values.flyingFrom}
+									onChange={handleChange}
 									name="flyingFrom"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -105,8 +108,8 @@ const BookFlightForm = () => {
 									Flying To
 								</label>
 								<select
-									value={formik.values.flyingTo}
-									onChange={formik.handleChange}
+									value={values.flyingTo}
+									onChange={handleChange}
 									name="flyingTo"
 									className="p-2 border-2 font-semibold w-full md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -126,13 +129,24 @@ const BookFlightForm = () => {
 									Departure Date
 								</label>
 								<input
-									onChange={formik.handleChange}
-									value={formik.values.departureDate}
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.departureDate}
 									type="date"
 									name="departureDate"
-									className="p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									className={
+										errors.departureDate && touched.departureDate
+											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
+											: "p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									}
 								/>
+								{errors.departureDate && touched.departureDate && (
+									<div className="text-red-500 text-xl p-2">
+										{errors.departureDate}
+									</div>
+								)}
 							</div>
+
 							<div className="mt-3">
 								<label
 									htmlFor="returnDate"
@@ -141,12 +155,22 @@ const BookFlightForm = () => {
 									Return Date
 								</label>
 								<input
-									onChange={formik.handleChange}
-									value={formik.values.returnDate}
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.returnDate}
 									type="date"
 									name="returnDate"
-									className="p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									className={
+										errors.returnDate && touched.returnDate
+											? "border-red-500 p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
+											: "p-2 border-2 font-semibold w-[14rem] md:w-[30rem] lg:w-[35rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
+									}
 								/>
+								{errors.returnDate && touched.returnDate && (
+									<div className="text-red-500 text-xl p-2">
+										{errors.returnDate}
+									</div>
+								)}
 							</div>
 						</div>
 
@@ -159,8 +183,8 @@ const BookFlightForm = () => {
 									Adult
 								</label>
 								<select
-									value={formik.values.adult}
-									onChange={formik.handleChange}
+									value={values.adult}
+									onChange={handleChange}
 									name="adult"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -178,8 +202,8 @@ const BookFlightForm = () => {
 									Child
 								</label>
 								<select
-									onChange={formik.handleChange}
-									value={formik.values.child}
+									onChange={handleChange}
+									value={values.child}
 									name="child"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -197,8 +221,8 @@ const BookFlightForm = () => {
 									Infant
 								</label>
 								<select
-									onChange={formik.handleChange}
-									value={formik.values.infant}
+									onChange={handleChange}
+									value={values.infant}
 									name="infant"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
