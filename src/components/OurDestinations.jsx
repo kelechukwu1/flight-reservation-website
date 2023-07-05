@@ -2,7 +2,7 @@ import Carousel from "./Carousel";
 import { v4 } from "uuid";
 
 const OurDestinations = () => {
-	const images = ["/3.jpg", "/3.jpg", "/3.jpg"];
+	const images = ["/3.jpg"];
 	return (
 		<div className="bg-gray-200 p-20 md:justify-between items-center rounded md:grid md:grid-cols-2">
 			{/* <div className="flex"> */}

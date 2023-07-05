@@ -1,6 +1,9 @@
 import * as yup from "yup";
 
 export const basicSchema = yup.object().shape({
-	departureDate: yup.string().required("Enter departure date"),
-	returnDate: yup.string().required("Enter return date"),
+	departureDate: yup.date().required("Enter departure date"),
+	returnDate: yup
+		.date()
+		.max(new Date(), "date must be current")
+		.required("Enter return date"),
 });
