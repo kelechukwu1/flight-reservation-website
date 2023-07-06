@@ -40,34 +40,33 @@ const Footer = () => {
 						<div className="text-2xl px-10">
 							<Link to="#">Inflight Magazines</Link>
 						</div>
-					</div>
-
-					<div className="right box px-10">
-						<div className="media-icons flex gap-4">
-							<div>
-								<a href="#">
-									<i className="bx bxl-facebook text-6xl"></i>
-								</a>
-							</div>
-							<div>
-								<a href="#">
-									<i className="bx bxl-whatsapp text-6xl"></i>
-								</a>
-							</div>
-							<div>
-								<a href="linkedin.com/in/kelechukwu-ikechukwu-9b7615225">
-									<i className="bx bxl-linkedin text-6xl"></i>
-								</a>
-							</div>
-							<div>
-								<a href="#">
-									<i className="bx bxl-instagram text-6xl"></i>
-								</a>
-							</div>
-							<div>
-								<a href="#">
-									<i className="bx bxl-slack text-6xl"></i>
-								</a>
+						<div className="right box px-4 lg:pt-8">
+							<div className="media-icons flex gap-4">
+								<div>
+									<a href="#">
+										<i className="bx bxl-facebook text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-whatsapp text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="linkedin.com/in/kelechukwu-ikechukwu-9b7615225">
+										<i className="bx bxl-linkedin text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-instagram text-6xl"></i>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<i className="bx bxl-slack text-6xl"></i>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>

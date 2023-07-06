@@ -3,16 +3,20 @@
     margin-right: 20px;
     display: inline-flex;
     padding: 5px 10px;
-    border: 2px solid rgb(13, 94, 13);
+    border: 2px solid #03316d;
     border-radius: 4px;
     text-decoration: none;
-    color: #116d11;
+    color: #03316d;
+}
+.showcase *{
+  @apply z-20
 }
 
 .nav-buttons h6:hover {
-    border-color: #03316d;
-    color: #03316d;
+    border-color: rgb(8, 63, 13);
+    color: rgb(8, 63, 13);
 }
+
 /* contact style */
 .contact-section {
     min-height: 100vh;

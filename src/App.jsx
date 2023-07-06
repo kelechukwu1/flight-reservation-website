@@ -21,6 +21,9 @@ import Vision from "./pages/help/Vision";
 import Contact from "./pages/help/Contact";
 import FlightDetails from "./pages/FlightDetails";
 import BookedFlights from "./pages/BookedFlights";
+import BookFlightForm from "./pages/BookFlightForm";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -31,6 +34,9 @@ const router = createBrowserRouter(
 					<Route path="vision" element={<Vision />} />
 					<Route path="contact" element={<Contact />} />
 				</Route>
+				<Route path="login" element={<Login />} />
+				<Route path="signUp" element={<SignUp />} />
+				<Route path="FlightForm" element={<BookFlightForm />} />
 				<Route path="selectOutbound" element={<SelectOutbound />} />
 				<Route path="flightDetails" element={<FlightDetails />} />
 				<Route path="payment" element={<PaymentOption />} />

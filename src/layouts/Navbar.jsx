@@ -12,7 +12,7 @@ const NavBar = () => {
 		{
 			id: 1,
 			path: "/",
-			name: "Flights",
+			name: "Home",
 		},
 		{
 			id: 2,
@@ -90,9 +90,13 @@ const NavBar = () => {
 										))}
 									</div>
 
-									<button className="nav-buttons md:ml-10 ml-10" to="/login">
+									<Link
+										onClick={() => setOpen(!open)}
+										className="nav-buttons md:ml-10 ml-10"
+										to="/login"
+									>
 										<h6 className="text-2xl font-semibold">Get Started</h6>
-									</button>
+									</Link>
 								</ul>
 							</div>
 						</div>
