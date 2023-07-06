@@ -44,7 +44,7 @@ const SignUp = () => {
 						<Link to={"/FlightForm"}>
 							<div className="w-full py-3 bg-slate-200 text-xl md:text-2xl rounded border justify-center items-center mt-5 hover:scale-105 duration-300">
 								{/* google svg logo here */}
-								Login with Google
+								SignUp with Google
 							</div>
 						</Link>
 					</div>
