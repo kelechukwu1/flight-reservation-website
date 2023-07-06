@@ -33,7 +33,7 @@ const BookFlightForm = () => {
 		});
 	console.log(errors);
 	return (
-		<div className="bg-slate-900 px-12 py-5 rounded-es-3xl rounded-tr-3xl">
+		<div className="bg-slate-900 px-12 py-5  rounded-tr-3xl">
 			<div className="w-full lg:w-[80rem]  md:w-[65rem] md:h-[50rem] md:my-[5rem]  md:mx-[auto] shadow-lg rounded-md px-6">
 				<div className="items-center justify-center w-full">
 					<h1 className="text-center text-2xl font-semibold text-white">

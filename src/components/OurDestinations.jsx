@@ -24,7 +24,7 @@ const OurDestinations = () => {
 
 				<div className="mt-3 flex justify-center">
 					<Link to="/login">
-						<h6 className="text-white px-10 py-4 rounded text-2xl bg-slate-900 hover:bg-slate-950 duration-500 ease-in-out">
+						<h6 className="text-white px-10 py-4 rounded text-2xl bg-blue-900 hover:bg-blue-950 duration-500 ease-in-out">
 							GET STARTED
 						</h6>
 					</Link>
