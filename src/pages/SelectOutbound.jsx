@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SelectOutbound = () => {
 	const user = useSelector((state) => state.users.value);
-	const { flyingFrom, flyingTo, adult, child, infant } =
+	const { flyingFrom, flyingTo, adult, child, infant, departureDate } =
 		user?.[user.length - 1];
-	console.log(user);
+	console.log(departureDate);
 	const adultNumber = parseInt(adult);
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
@@ -15,16 +15,20 @@ const SelectOutbound = () => {
 	const surCharge = 50000;
 	const outStandingAmount = price + tax + surCharge;
 	const formattedNumber = outStandingAmount.toLocaleString("en-US");
-	const date = user[user.length - 1].departureDate;
 	//split the dates and airport abbreviations
-	const dateSplit = date.split("-");
+	const dateSplit = departureDate.split("-");
 	const flyingFromSplit = flyingFrom.split(" ");
 	const flyingToSplit = flyingTo.split(" ");
 	const splitedDate = Number(dateSplit[2]);
+
 	// const splitedMonth = dateSplit[1]
 
 	//get the current date
 	let currentDate = new Date();
+	const dd = departureDate.to;
+	console.log(dd);
+	// const stamp = currentDate.toDateString();
+	// console.log(stamp);
 	const options = { month: "short" };
 	const month = currentDate.toLocaleString("en-US", options);
 	const navigate = useNavigate();
