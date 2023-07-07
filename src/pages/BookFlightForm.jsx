@@ -28,10 +28,10 @@ const BookFlightForm = () => {
 			//form submit
 			onSubmit: (values) => {
 				dispatch(addUser({ ...values, id }));
-				navigate("selectOutbound");
+				navigate("/selectOutbound");
+				console.log(values);
 			},
 		});
-	console.log(errors);
 	return (
 		<>
 			<div className="bg-slate-900 px-12 py-5  rounded-tr-3xl">
@@ -145,6 +145,7 @@ const BookFlightForm = () => {
 										value={values.departureDate}
 										type="date"
 										name="departureDate"
+										placeholder={values.departureDate}
 										className={
 											errors.departureDate && touched.departureDate
 												? "border-red-500 p-2 border-2 font-semibold h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
