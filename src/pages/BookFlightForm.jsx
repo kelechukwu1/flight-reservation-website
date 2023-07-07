@@ -263,7 +263,7 @@ const BookFlightForm = () => {
 					</Form>
 				</div>
 			</div>
-			<hr className="bg-white h-1" />
+			<hr className="bg-white" />
 		</>
 	);
 };
