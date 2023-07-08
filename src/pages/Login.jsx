@@ -70,5 +70,99 @@ const Login = () => {
 		</section>
 	);
 };
-
 export default Login;
+
+// import React, { useState } from 'react';
+
+// function DateInput() {
+//   const [dateString, setDateString] = useState('');
+//   const [dateObj, setDateObj] = useState(null);
+
+//   const handleInputChange = (event) => {
+//     setDateString(event.target.value);
+//   };
+
+//   const handleConvertDate = () => {
+//     const parsedDate = new Date(dateString);
+
+//     if (isNaN(parsedDate)) {
+//       setDateObj(null); // Parsing failed, set dateObj to null
+//     } else {
+//       setDateObj(parsedDate); // Parsing successful, update dateObj
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <input type="text" value={dateString} onChange={handleInputChange} />
+//       <button onClick={handleConvertDate}>Convert</button>
+//       {dateObj && <p>Converted Date: {dateObj.toString()}</p>}
+//     </div>
+//   );
+// }
+
+// export default DateInput;
+
+// import React, { useState } from 'react';
+
+// function DateInput() {
+//   const [dateString, setDateString] = useState('');
+//   const [isValid, setIsValid] = useState(true);
+
+//   const handleInputChange = (event) => {
+//     const inputDate = new Date(event.target.value);
+//     const currentDate = new Date();
+
+//     if (inputDate > currentDate) {
+//       setIsValid(false);
+//     } else {
+//       setIsValid(true);
+//       setDateString(event.target.value);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <input type="date" value={dateString} onChange={handleInputChange} />
+//       {!isValid && <p>Date should not be later than today.</p>}
+//     </div>
+//   );
+// }
+
+// export default DateInput;
+
+// import React, { useState } from 'react';
+
+// function DateInput() {
+//   const [dateString, setDateString] = useState('');
+//   const [isValid, setIsValid] = useState(true);
+
+//   const handleInputChange = (event) => {
+//     const inputDate = new Date(event.target.value);
+//     const currentDate = new Date();
+
+//     if (inputDate > currentDate) {
+//       setIsValid(false);
+//     } else {
+//       setIsValid(true);
+//       setDateString(event.target.value);
+//     }
+//   };
+
+//   const formatDate = (dateString) => {
+//     const options = { weekday: 'long', month: 'long', day: 'numeric' };
+//     const date = new Date(dateString);
+
+//     return date.toLocaleDateString('en-US', options);
+//   };
+
+//   return (
+//     <div>
+//       <input type="date" value={dateString} onChange={handleInputChange} />
+//       {!isValid && <p>Date should not be later than today.</p>}
+//       {dateString && isValid && <p>Selected Date: {formatDate(dateString)}</p>}
+//     </div>
+//   );
+// }
+
+// export default DateInput;
