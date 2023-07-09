@@ -16,7 +16,6 @@ const SignUp = () => {
 			console.log(email, "has been created");
 			// auth?.currentUser.email === email
 		} catch (err) {
-			console.error(err.message);
 			setSignupErr(err.message);
 		}
 	};

@@ -16,7 +16,6 @@ const Login = () => {
 			console.log(email, "logged in");
 			console.log(auth);
 		} catch (err) {
-			console.error(err.message);
 			setLoginErr(err.message);
 		}
 	};
