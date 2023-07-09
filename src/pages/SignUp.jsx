@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -7,6 +7,7 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [signupErr, setSignupErr] = useState("");
 
 	const SignIn = async () => {
 		try {
@@ -15,9 +16,25 @@ const SignUp = () => {
 			console.log(email, "has been created");
 			// auth?.currentUser.email === email
 		} catch (err) {
-			console.error(err);
+			console.error(err.message);
+			setSignupErr(err.message);
 		}
 	};
+
+	useEffect(() => {
+		let timeoutId;
+
+		if (signupErr) {
+			timeoutId = setTimeout(() => {
+				setSignupErr("");
+			}, 3000);
+		}
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
+	}, [signupErr]);
+
 	return (
 		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
 			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
@@ -56,6 +73,7 @@ const SignUp = () => {
 								Sign Up
 							</div>
 						</Link>
+						{signupErr && <div className="text-red-500">{signupErr}</div>}
 					</form>
 					<div className="grid grid-cols-3 items-center justify-center mt-10 text-gray-500">
 						<hr className="border-gray-500" />
