@@ -12,7 +12,7 @@ const SignUp = () => {
 		try {
 			await createUserWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
-			console.log(email, "user created");
+			console.log(email, "has been created");
 			// auth?.currentUser.email === email
 		} catch (err) {
 			console.error(err);
