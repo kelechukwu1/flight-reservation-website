@@ -1,7 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+	const navigate = useNavigate();
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const loginWithEmailAndPassword = async () => {
+		try {
+			await signInWithEmailAndPassword(auth, email, password);
+			navigate("/FlightForm");
+			console.log(email, "logged in");
+			window.alert("logged in");
+		} catch (err) {
+			console.error(err);
+		}
+	};
 	return (
 		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
 			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
@@ -15,6 +31,9 @@ const Login = () => {
 
 					<form className="flex flex-col gap-4">
 						<input
+							onChange={(e) => {
+								setEmail(e.target.value);
+							}}
 							className="p-3 md:text-2xl mt-8 rounded border text-xl"
 							type="email"
 							name="email"
@@ -22,6 +41,9 @@ const Login = () => {
 						/>
 						<div>
 							<input
+								onChange={(e) => {
+									setPassword(e.target.value);
+								}}
 								className="w-full md:text-2xl p-3 rounded border text-xl"
 								type="password"
 								name="password"
@@ -29,7 +51,7 @@ const Login = () => {
 							/>
 							{/* eye svg logo here */}
 						</div>
-						<Link to={"/FlightForm"}>
+						<Link onClick={loginWithEmailAndPassword}>
 							<div className="bg-slate-900 text-white md:text-2xl text-xl font-semibold py-3 rounded hover:scale-105 duration-300">
 								Login
 							</div>

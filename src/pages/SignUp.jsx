@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
-import {
-	createUserWithEmailAndPassword,
-	signOut,
-	signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -16,7 +12,8 @@ const SignUp = () => {
 		try {
 			await createUserWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
-			console.log("user created");
+			console.log(email, "user created");
+			window.alert("signed up");
 			// auth?.currentUser.email === email
 		} catch (err) {
 			console.error(err);
