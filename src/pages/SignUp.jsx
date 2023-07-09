@@ -7,32 +7,33 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [signupErr, setSignupErr] = useState("");
+	// const [signupErr, setSignupErr] = useState("");
 
 	const SignIn = async () => {
 		try {
 			await createUserWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
-			console.log(email, "has been created");
+			// console.log(email, "has been created");
 			// auth?.currentUser.email === email
 		} catch (err) {
-			setSignupErr(err.message);
+			console.log(err.message);
+			// setSignupErr(err.message);
 		}
 	};
 
-	useEffect(() => {
-		let timeoutId;
+	// useEffect(() => {
+	// 	let timeoutId;
 
-		if (signupErr) {
-			timeoutId = setTimeout(() => {
-				setSignupErr("");
-			}, 3000);
-		}
+	// 	if (signupErr) {
+	// 		timeoutId = setTimeout(() => {
+	// 			setSignupErr("");
+	// 		}, 3000);
+	// 	}
 
-		return () => {
-			clearTimeout(timeoutId);
-		};
-	}, [signupErr]);
+	// 	return () => {
+	// 		clearTimeout(timeoutId);
+	// 	};
+	// }, [signupErr]);
 
 	return (
 		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
@@ -72,7 +73,7 @@ const SignUp = () => {
 								Sign Up
 							</div>
 						</Link>
-						{signupErr && <div className="text-red-500">{signupErr}</div>}
+						{/* {signupErr && <div className="text-red-500">{signupErr}</div>} */}
 					</form>
 					<div className="grid grid-cols-3 items-center justify-center mt-10 text-gray-500">
 						<hr className="border-gray-500" />
