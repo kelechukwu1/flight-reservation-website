@@ -1,14 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import { auth } from '../config/firebase'
-// import {} from 'firebase/auth'
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
+import {
+	createUserWithEmailAndPassword,
+	signOut,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const SignUp = () => {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const SignIn = async () => {
-		console.log("ok");
+		try {
+			await createUserWithEmailAndPassword(auth, email, password);
+			navigate("/FlightForm");
+			console.log("user created");
+			// auth?.currentUser.email === email
+		} catch (err) {
+			console.error(err);
+		}
 	};
 	return (
 		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
@@ -43,7 +55,7 @@ const SignUp = () => {
 							/>
 							{/* eye svg logo here */}
 						</div>
-						<Link onClick={signIn} to={"/FlightForm"}>
+						<Link onClick={SignIn}>
 							<div className="bg-slate-900 text-white md:text-2xl text-xl font-semibold py-3 rounded hover:scale-105 duration-300">
 								Sign Up
 							</div>
