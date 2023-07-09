@@ -13,7 +13,6 @@ const Login = () => {
 			await signInWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
 			console.log(email, "logged in");
-			window.alert("logged in");
 		} catch (err) {
 			console.error(err);
 		}

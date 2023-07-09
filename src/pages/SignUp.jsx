@@ -13,7 +13,6 @@ const SignUp = () => {
 			await createUserWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
 			console.log(email, "user created");
-			window.alert("signed up");
 			// auth?.currentUser.email === email
 		} catch (err) {
 			console.error(err);
