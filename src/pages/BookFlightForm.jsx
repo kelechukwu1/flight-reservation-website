@@ -4,11 +4,28 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../store";
 import { v4 as uuidv4 } from "uuid";
 import { basicSchema } from "../schemas/Schema";
+import { useState } from "react";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
+
+	//custom onChange function
+	const [isValid, setIsValid] = useState(true);
+
+	const handleInputChange = (event) => {
+		const inputDate = new Date(event.target.value);
+		const currentDate = new Date();
+
+		if (inputDate > currentDate) {
+			setIsValid(false);
+		} else {
+			setIsValid(true);
+			setDateString(event.target.value);
+		}
+		handleChange(event);
+	};
 
 	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
 		useFormik({
@@ -140,7 +157,7 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleChange}
+										onChange={handleInputChange}
 										onBlur={handleBlur}
 										value={values.departureDate}
 										type="date"
@@ -152,6 +169,11 @@ const BookFlightForm = () => {
 												: "p-2 border-2 font-semibold h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
+									{/* {!isValid && (
+										<div className="text-red-500 text-xl">
+											Date is later than today.
+										</div>
+									)} */}
 									{errors.departureDate && touched.departureDate && (
 										<div className="text-red-500 text-xl p-2">
 											{errors.departureDate}
@@ -171,7 +193,7 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleChange}
+										onChange={handleInputChange}
 										onBlur={handleBlur}
 										value={values.returnDate}
 										type="date"
@@ -182,7 +204,11 @@ const BookFlightForm = () => {
 												: "p-2 border-2 font-semibold  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
-
+									{!isValid && (
+										<div className="text-red-500 text-xl">
+											Date is later than today.
+										</div>
+									)}
 									{errors.returnDate && touched.returnDate && (
 										<div className="text-red-500 text-xl p-2">
 											{errors.returnDate}
