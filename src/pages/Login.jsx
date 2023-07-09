@@ -10,7 +10,7 @@ const Login = () => {
 						Login
 					</div>
 					<div className="mt-4 text-slate-900 text-xl md:text-2xl">
-						If you're already a member, easily log in
+						If you already have an account, easily log in
 					</div>
 
 					<form className="flex flex-col gap-4">

@@ -6,7 +6,6 @@ import {
 	createRoutesFromElements,
 	RouterProvider,
 } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 //pages
 import About from "./pages/About";
 import LandingPage from "./pages/LandingPage";
