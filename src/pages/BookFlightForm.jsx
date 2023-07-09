@@ -14,17 +14,18 @@ const BookFlightForm = () => {
 	//custom onChange function
 	const [isValid, setIsValid] = useState(true);
 
-	const handleInputChange = (event) => {
-		const inputDate = new Date(event.target.value);
-		const currentDate = new Date();
-
-		if (inputDate > currentDate) {
+	const handleInputChange = (e) => {
+		const inputDate = new Date(e.target.value);
+		const date = new Date(inputDate).toISOString().split("T")[0];
+		const today = new Date().toISOString().split("T")[0];
+		if (date < today) {
 			setIsValid(false);
+			// console.log("set correct date");
 		} else {
+			// console.log("date is valid");
 			setIsValid(true);
-			setDateString(event.target.value);
 		}
-		handleChange(event);
+		handleChange(e);
 	};
 
 	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
@@ -43,10 +44,12 @@ const BookFlightForm = () => {
 			validationSchema: basicSchema,
 
 			//form submit
-			onSubmit: (values) => {
-				dispatch(addUser({ ...values, id }));
-				navigate("/selectOutbound");
-				console.log(values);
+			onSubmit: (values, e) => {
+				if (isValid) {
+					dispatch(addUser({ ...values, id }));
+					navigate("/selectOutbound");
+					console.log(values);
+				}
 			},
 		});
 	return (
@@ -164,18 +167,18 @@ const BookFlightForm = () => {
 										name="departureDate"
 										placeholder={values.departureDate}
 										className={
-											errors.departureDate && touched.departureDate
+											errors.departureDate && touched.departureDate && !isValid
 												? "border-red-500 p-2 border-2 font-semibold h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
 												: "p-2 border-2 font-semibold h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
-									{/* {!isValid && (
+									{!isValid && (
 										<div className="text-red-500 text-xl">
-											Date is later than today.
+											Set a valid date.
 										</div>
-									)} */}
+									)}
 									{errors.departureDate && touched.departureDate && (
-										<div className="text-red-500 text-xl p-2">
+										<div className="text-red-500 text-xl">
 											{errors.departureDate}
 										</div>
 									)}
@@ -199,18 +202,18 @@ const BookFlightForm = () => {
 										type="date"
 										name="returnDate"
 										className={
-											errors.returnDate && touched.returnDate
+											errors.returnDate && touched.returnDate && !isValid
 												? "border-red-500 p-2 border-2 font-semibold  h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
 												: "p-2 border-2 font-semibold  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
 									{!isValid && (
 										<div className="text-red-500 text-xl">
-											Date is later than today.
+											Set a valid date.
 										</div>
 									)}
 									{errors.returnDate && touched.returnDate && (
-										<div className="text-red-500 text-xl p-2">
+										<div className="text-red-500 text-xl">
 											{errors.returnDate}
 										</div>
 									)}
