@@ -2,10 +2,6 @@ import React, { useState } from "react";
 
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
-// import NewsLetter from "../components/NewsLetter";
-// import OurDestinations from "../components/OurDestinations";
-// import BookFlightForm from "../components/BookFlightForm";
-// import PeaceAdvantage from "../components/PeaceAdvantage";
 
 const NavBar = () => {
 	const menuData = [
@@ -36,23 +32,28 @@ const NavBar = () => {
 							<div className="flex justify-between md:items-center p-4">
 								<div className="ml-10 md:items-center cursor-pointer pt-2 md:py-0">
 									<Link
+										className="flex"
 										to="/"
 										onClick={() => {
 											!open ? setOpen(!open) : open;
 										}}
 									>
-										{/* logo */}
-										<img
-											src="/5.jpg"
-											alt="flyASAP logo"
-											className="d-inline-block align-top w-16"
-										/>
-										<span className="text-green-900 text-4xl font-bold">
-											fly
-										</span>
-										<span className="text-blue-900 text-4xl font-bold">
-											ASAP
-										</span>
+										<div>
+											{/* logo */}
+											<img
+												src="/5.jpg"
+												alt="flyASAP logo"
+												className="align-top w-16"
+											/>
+										</div>
+										<div>
+											<span className="text-green-900 text-4xl font-bold">
+												fly
+											</span>
+											<span className="text-blue-900 text-4xl font-bold">
+												ASAP
+											</span>
+										</div>
 									</Link>
 								</div>
 

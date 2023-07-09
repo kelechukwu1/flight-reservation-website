@@ -7,31 +7,33 @@ const Login = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	// const [loginErr, setLoginErr] = useState("");
+	const [loginErr, setLoginErr] = useState("");
 
 	const loginWithEmailAndPassword = async () => {
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
+			console.log(email, "logged in");
+			console.log(auth);
 		} catch (err) {
-			console.log(err.message);
-			// setLoginErr(err.message);
+			console.error(err.message);
+			setLoginErr(err.message);
 		}
 	};
 
-	// useEffect(() => {
-	// 	let timeoutId;
+	useEffect(() => {
+		let timeoutId;
 
-	// 	if (loginErr) {
-	// 		timeoutId = setTimeout(() => {
-	// 			setLoginErr("");
-	// 		}, 3000);
-	// 	}
+		if (loginErr) {
+			timeoutId = setTimeout(() => {
+				setLoginErr("");
+			}, 3000);
+		}
 
-	// 	return () => {
-	// 		clearTimeout(timeoutId);
-	// 	};
-	// }, [loginErr]);
+		return () => {
+			clearTimeout(timeoutId);
+		};
+	}, [loginErr]);
 	return (
 		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
 			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
@@ -70,7 +72,7 @@ const Login = () => {
 								Login
 							</div>
 						</Link>
-						{/* {loginErr && <div className="text-red-500">{loginErr}</div>} */}
+						{loginErr && <div className="text-red-500 text-xl">{loginErr}</div>}
 					</form>
 					<div className="grid grid-cols-3 items-center justify-center mt-10 text-gray-500">
 						<hr className="border-gray-500" />

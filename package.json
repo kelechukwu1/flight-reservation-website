@@ -1,7 +1,7 @@
 {
   "name": "flight-reservation-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,10 +19,9 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
-    "react-redux": "^8.1.0",
+    "react-redux": "^7.2.9",
     "react-router-dom": "^6.12.1",
     "uuid": "^9.0.0",
-    "yarn": "^1.22.19",
     "yup": "^1.2.0"
   },
   "devDependencies": {
