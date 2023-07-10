@@ -4,29 +4,49 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../store";
 import { v4 as uuidv4 } from "uuid";
 import { basicSchema } from "../schemas/Schema";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
 
-	//custom onChange function
-	const [isValid, setIsValid] = useState(true);
+	const departureDateRef = useRef();
+	const returnDateRef = useRef();
 
-	const handleInputChange = (e) => {
-		const inputDate = new Date(e.target.value);
-		const date = new Date(inputDate).toISOString().split("T")[0];
-		const today = new Date().toISOString().split("T")[0];
-		if (date < today) {
-			setIsValid(false);
-			// console.log("set correct date");
-		} else {
-			// console.log("date is valid");
+	//custom onChange function
+	const [isValid, setIsValid] = useState(false);
+
+	const handleDateInput = () => {
+		const inputDepartureDate = departureDateRef.current.value;
+		const inputReturnDate = returnDateRef.current.value;
+
+		const departureDate = new Date(inputDepartureDate).getTime();
+		const returnDate = new Date(inputReturnDate).getTime();
+		const today = new Date().getTime();
+
+		console.log("Departure: " + departureDate);
+		console.log("Return: " + returnDate);
+
+		if (inputDate >= today) {
 			setIsValid(true);
+		} else {
+			setIsValid(false);
 		}
-		handleChange(e);
+		// handleChange();
 	};
+
+	// const handleReturnInput = (e) => {
+	// 	const inputDate = new Date(e.target.value).getTime();
+	// 	const today = new Date().getTime();
+
+	// 	if (inputDate >= today) {
+	// 		setIsValid(true);
+	// 	} else {
+	// 		setIsValid(false);
+	// 	}
+	// 	handleChange(e);
+	// };
 
 	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
 		useFormik({
@@ -44,7 +64,7 @@ const BookFlightForm = () => {
 			validationSchema: basicSchema,
 
 			//form submit
-			onSubmit: (values, e) => {
+			onSubmit: (values) => {
 				if (isValid) {
 					dispatch(addUser({ ...values, id }));
 					navigate("/selectOutbound");
@@ -160,9 +180,10 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleInputChange}
+										// onChange={handleDepartureInput}
 										onBlur={handleBlur}
-										value={values.departureDate}
+										// value={values.departureDate}
+										ref={departureDateRef}
 										type="date"
 										name="departureDate"
 										placeholder={values.departureDate}
@@ -196,9 +217,10 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleInputChange}
+										// onChange={handleReturnInput}
 										onBlur={handleBlur}
-										value={values.returnDate}
+										// value={values.returnDate}
+										ref={returnDateRef}
 										type="date"
 										name="returnDate"
 										className={
@@ -283,6 +305,7 @@ const BookFlightForm = () => {
 
 						<div className="mt-3 mx-2 md:mx-[10rem]">
 							<button
+								onClick={(e) => {}}
 								type="submit"
 								className="w-full uppercase p-3 mt-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-950 text-xl ease-in-out duration-500"
 							>
