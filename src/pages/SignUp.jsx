@@ -12,7 +12,7 @@ const SignUp = () => {
 	const SignIn = async () => {
 		try {
 			await createUserWithEmailAndPassword(auth, email, password);
-			navigate("/FlightForm");
+			navigate("/login");
 			console.log(email, "has been created");
 		} catch (err) {
 			setSignupErr(err.message);
