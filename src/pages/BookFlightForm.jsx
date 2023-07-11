@@ -3,14 +3,15 @@ import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store";
 import { v4 as uuidv4 } from "uuid";
+
 import { basicSchema } from "../schemas/Schema";
+
 import { useState } from "react";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
-
 	//custom onChange function and useState
 	const [returnDate, setReturnDate] = useState("");
 	const [departureDate, setDepartureDate] = useState("");
@@ -306,5 +307,6 @@ const BookFlightForm = () => {
 			<hr className="bg-white" />
 		</>
 	);
+
 };
 export default BookFlightForm;
