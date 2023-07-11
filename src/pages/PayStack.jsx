@@ -54,11 +54,11 @@ const PayStack = () => {
 				</div>
 			</div>
 			<div className="m-4">
-				<button className="w-full bg-slate-900 hover:bg-slate-950 transition ease-in-out duration-500 p-3 text-center text-white text-3xl">
+				<button className="w-full bg-slate-900 hover:bg-slate-950 transition ease-in-out duration-500 py-6 text-center text-white text-3xl">
 					Pay Now
 				</button>
 			</div>
-			<div className="text-center m-4">
+			<div className="text-center p-4 m-4">
 				<div>
 					<ion-icon name="lock-closed-outline" size="large"></ion-icon>
 				</div>
