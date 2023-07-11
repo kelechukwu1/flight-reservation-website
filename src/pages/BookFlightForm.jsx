@@ -1,61 +1,75 @@
 import { Form, useNavigate } from "react-router-dom";
-// import { useFormik } from "formik";
+import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store";
 import { v4 as uuidv4 } from "uuid";
-// import { basicSchema } from "../schemas/Schema";
-import { useState, useRef } from "react";
+import { basicSchema } from "../schemas/Schema";
+import { useState } from "react";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
 
-	const [flightType, setFlightType] = useState("One-Way");
-	const [flyingFrom, setFlyingFrom] = useState("Owerri (QOW)");
-	const [flyingTo, setFlyingTo] = useState("Lagos (LOS)");
-	const [departureDate, setDepartureDate] = useState("");
+	//custom onChange function and useState
 	const [returnDate, setReturnDate] = useState("");
-	const [adult, setAdult] = useState("1");
-	const [child, setChild] = useState("0");
-	const [infant, setInfant] = useState("0");
-	const [isValid, setIsValid] = useState(true);
+	const [departureDate, setDepartureDate] = useState("");
+	const [isValid, setIsValid] = useState(false);
 
-	const handleDateInput = (e) => {
-		setDepartureDate(e.target.value);
-		const departureDatevar = new Date(departureDate).getTime();
+	//departure date input onChange
+	const handleDepartureInputDate = (e) => {
+		const departure = e.target.value;
+		setDepartureDate(departure);
+		const departureDateTime = new Date(departure).getTime();
 		const today = new Date().getTime();
 
-		console.log("Departure Date: " + departureDatevar);
-		console.log("Today: " + today);
-
-		if (departureDatevar >= today) {
+		if (departureDateTime >= today) {
 			setIsValid(true);
-			console.log(true);
 		} else {
 			setIsValid(false);
-			console.log(false);
 		}
+		handleChange(e);
+	};
+	//return date input onChange
+	const handleReturnInputDate = (e) => {
+		const returnd = e.target.value;
+		setReturnDate(returnd);
+		const returnDateTime = new Date(returnd).getTime();
+		const today = new Date().getTime();
+
+		if (returnDateTime >= today) {
+			setIsValid(true);
+		} else {
+			setIsValid(false);
+		}
+		handleChange(e);
 	};
 
-	const handleSubmit = () => {
-		const values = {
-			flightType,
-			flyingFrom,
-			flyingTo,
-			departureDate,
-			returnDate,
-			adult,
-			child,
-			infant,
-		};
-		console.log(values);
-		if (isValid) {
-			dispatch(addUser({ values, id: id }));
-			navigate("/selectOutbound");
-		}
-	};
+	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
+		useFormik({
+			initialValues: {
+				flightType: "One-Way",
+				flyingFrom: "Owerri (QOW)",
+				flyingTo: "Lagos (LOS)",
+				departureDate: departureDate,
+				returnDate: returnDate,
+				adult: 1,
+				child: 0,
+				infant: 0,
+			},
+			//validations
+			validationSchema: basicSchema,
 
+			//form submit
+			onSubmit: (values) => {
+				if (isValid) {
+					dispatch(addUser({ ...values, id: id }));
+					navigate("/selectOutbound");
+				} else {
+					console.log("err");
+				}
+			},
+		});
 	return (
 		<>
 			<div className="bg-slate-900 px-12 py-5  rounded-tr-3xl">
@@ -67,7 +81,7 @@ const BookFlightForm = () => {
 					</div>
 
 					<Form
-						// onSubmit={handleSubmit}
+						onSubmit={handleSubmit}
 						className="justify-center items-center w-full"
 					>
 						<div className="w-full flex">
@@ -79,8 +93,8 @@ const BookFlightForm = () => {
 									Flight type
 								</label>
 								<select
-									onChange={(e) => setFlightType(e.target.value)}
-									value={flightType}
+									onChange={handleChange}
+									value={values.flightType}
 									name="flightType"
 									className="w-full p-2 border-2 font-semibold h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -103,8 +117,8 @@ const BookFlightForm = () => {
 								</div>
 								<div className="w-full">
 									<select
-										value={flyingFrom}
-										onChange={(e) => setFlyingFrom(e.target.value)}
+										value={values.flyingFrom}
+										onChange={handleChange}
 										name="flyingFrom"
 										className="p-2 border-2 font-semibold w-full mr-2  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 									>
@@ -139,8 +153,8 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<select
-										value={flyingTo}
-										onChange={(e) => setFlyingTo(e.target.value)}
+										value={values.flyingTo}
+										onChange={handleChange}
 										name="flyingTo"
 										className="p-2 border-2 font-semibold w-full  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 									>
@@ -164,28 +178,24 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleDateInput}
-										value={departureDate}
+										onChange={handleDepartureInputDate}
+										onBlur={handleBlur}
+										value={values.departureDate}
 										type="date"
 										name="departureDate"
-										placeholder={departureDate}
-										// errors.departureDate && touched.departureDate &&
+										placeholder={values.departureDate}
 										className={
-											!isValid
+											errors.departureDate && touched.departureDate
 												? "border-red-500 p-2 border-2 font-semibold h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
 												: "p-2 border-2 font-semibold h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
-									{!isValid && (
-										<div className="text-red-500 text-xl">
-											Set a valid date.
-										</div>
-									)}
-									{/* {errors.departureDate && touched.departureDate && (
+
+									{errors.departureDate && touched.departureDate && (
 										<div className="text-red-500 text-xl">
 											{errors.departureDate}
 										</div>
-									)} */}
+									)}
 								</div>
 							</div>
 
@@ -200,27 +210,23 @@ const BookFlightForm = () => {
 								</div>
 								<div>
 									<input
-										onChange={handleDateInput}
-										value={returnDate}
+										onChange={handleReturnInputDate}
+										onBlur={handleBlur}
+										value={values.returnDate}
 										type="date"
 										name="returnDate"
-										// errors.returnDate && touched.returnDate &&
 										className={
-											!isValid
+											errors.departureDate && touched.departureDate
 												? "border-red-500 p-2 border-2 font-semibold  h-16 text-xl focus:border-blue-500 focus:ring-blue-500 rounded"
 												: "p-2 border-2 font-semibold  h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 										}
 									/>
-									{!isValid && (
-										<div className="text-red-500 text-xl">
-											Set a valid date.
-										</div>
-									)}
-									{/* {errors.returnDate && touched.returnDate && (
+
+									{errors.returnDate && touched.returnDate && (
 										<div className="text-red-500 text-xl">
 											{errors.returnDate}
 										</div>
-									)} */}
+									)}
 								</div>
 							</div>
 						</div>
@@ -234,8 +240,8 @@ const BookFlightForm = () => {
 									Adult
 								</label>
 								<select
-									value={adult}
-									onChange={(e) => setAdult(e.target.value)}
+									value={values.adult}
+									onChange={handleChange}
 									name="adult"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -253,8 +259,8 @@ const BookFlightForm = () => {
 									Child
 								</label>
 								<select
-									value={child}
-									onChange={(e) => setChild(e.target.value)}
+									onChange={handleChange}
+									value={values.child}
 									name="child"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -272,8 +278,8 @@ const BookFlightForm = () => {
 									Infant
 								</label>
 								<select
-									value={infant}
-									onChange={(e) => setInfant(e.target.value)}
+									onChange={handleChange}
+									value={values.infant}
 									name="infant"
 									className="p-2 border-2 font-semibold w-full mr-2 md:w-[18rem] lg:w-[20rem] h-16 text-xl border-blue-900 focus:border-blue-500 focus:ring-blue-500 rounded"
 								>
@@ -287,7 +293,6 @@ const BookFlightForm = () => {
 
 						<div className="mt-3 mx-2 md:mx-[10rem]">
 							<button
-								onSubmit={handleSubmit}
 								type="submit"
 								className="w-full uppercase p-3 mt-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-950 text-xl ease-in-out duration-500"
 							>

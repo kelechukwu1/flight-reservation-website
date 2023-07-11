@@ -5,7 +5,6 @@ const SelectOutbound = () => {
 	const user = useSelector((state) => state.users.value);
 	const { flyingFrom, flyingTo, adult, child, infant, departureDate } =
 		user?.[user.length - 1];
-	console.log(departureDate);
 	const adultNumber = parseInt(adult);
 	const childNumber = parseInt(child);
 	const infantNumber = parseInt(infant);
@@ -15,23 +14,17 @@ const SelectOutbound = () => {
 	const surCharge = 50000;
 	const outStandingAmount = price + tax + surCharge;
 	const formattedNumber = outStandingAmount.toLocaleString("en-US");
-	//split the dates and airport abbreviations
-	const dateSplit = departureDate.split("-");
+	//split airport abbreviations
 	const flyingFromSplit = flyingFrom.split(" ");
 	const flyingToSplit = flyingTo.split(" ");
-	const splitedDate = Number(dateSplit[2]);
-
-	// const splitedMonth = dateSplit[1]
 
 	//get the current date
-	let currentDate = new Date();
-	const dd = departureDate.to;
-	console.log(dd);
-	// const stamp = currentDate.toDateString();
-	// console.log(stamp);
-	const options = { month: "short" };
-	const month = currentDate.toLocaleString("en-US", options);
+	let currentDate = new Date(departureDate);
+	const options = { weekday: "short", day: "2-digit", month: "short" };
+	const formattedDate = currentDate.toLocaleDateString("en-US", options);
+
 	const navigate = useNavigate();
+	const flights = ["p4-7153", "p4-7157", "p4-7155", "p4-7158"];
 	return (
 		<>
 			<div className="h-[18rem] py-10 bg-contain bg-center bg-slate-900">
@@ -64,7 +57,7 @@ const SelectOutbound = () => {
 				</div>
 				<div className=" my-5 text-center">
 					<h1 className="text-white text-2xl">
-						{`${month} ${splitedDate} | ${travelers} Traveller(s) | 2 Flights Available`}
+						{`${formattedDate} | ${travelers} Traveller(s) | 2 Flights Available Today`}
 					</h1>
 				</div>
 			</div>
