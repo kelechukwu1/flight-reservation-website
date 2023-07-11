@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -24,7 +25,28 @@ const SelectOutbound = () => {
 	const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
 	const navigate = useNavigate();
+
+	//getting random flight numbers
 	const flights = ["p4-7153", "p4-7157", "p4-7155", "p4-7158"];
+	const [flight1, setFlight1] = useState("");
+	const [flight2, setFlight2] = useState("");
+
+	const getRandomFlight = () => {
+		const randomIndex = Math.floor(Math.random() * flights.length);
+		return flights[randomIndex];
+	};
+
+	useEffect(() => {
+		const flightA = getRandomFlight();
+		const flightB = getRandomFlight();
+		setFlight1(flightA);
+		setFlight2(flightB);
+	}, []);
+
+	//redirecting the page on flight selection
+	const handleClick = () => {
+		navigate(`/flight-details/${flight1}`);
+	};
 	return (
 		<>
 			<div className="h-[18rem] py-10 bg-contain bg-center bg-slate-900">
@@ -64,7 +86,7 @@ const SelectOutbound = () => {
 
 			<div className="p-7 md:p-20">
 				<nav>
-					<Link to="/flightDetails">
+					<div onClick={handleClick}>
 						<div className="flex mt-3">
 							<div className="border rounded border-gray-500 mb-4 p-3 w-full md:w-full lg:w-full hover:cursor-pointer hover:bg-gray-100">
 								<div className="flex justify-around items-center gap-2">
@@ -74,7 +96,7 @@ const SelectOutbound = () => {
 											alt="flyASAP logo"
 											className="align-top w-20"
 										/>
-										<span className="text-2xl">p4-7153</span>
+										{<div className="text-xl">{flight1}</div>}
 									</div>
 									<div>
 										<h1 className="text-2xl">12:20 - 13:30</h1>
@@ -89,9 +111,9 @@ const SelectOutbound = () => {
 								<ion-icon name="arrow-down" size="small"></ion-icon>
 							</div>
 						</div>
-					</Link>
+					</div>
 
-					<Link to="/flightDetails">
+					<div onClick={handleClick}>
 						<div className="flex">
 							<div className="border rounded border-gray-500 mb-4 p-3 mx-auto w-full md:w-full lg:w-full hover:cursor-pointer hover:bg-gray-100">
 								<div className="flex justify-around items-center gap-2">
@@ -101,7 +123,7 @@ const SelectOutbound = () => {
 											alt="flyASAP logo"
 											className="align-top w-20"
 										/>
-										<span className="text-2xl">p4-7157</span>
+										{<div className="text-xl">{flight2}</div>}
 									</div>
 									<div>
 										<h1 className="text-2xl">17:55 - 18:55</h1>
@@ -120,7 +142,7 @@ const SelectOutbound = () => {
 								<ion-icon name="arrow-down" size="small"></ion-icon>
 							</div>
 						</div>
-					</Link>
+					</div>
 				</nav>
 			</div>
 			{/* <Outlet/> */}

@@ -37,7 +37,7 @@ const router = createBrowserRouter(
 				<Route path="signUp" element={<SignUp />} />
 				<Route path="FlightForm" element={<BookFlightForm />} />
 				<Route path="selectOutbound" element={<SelectOutbound />} />
-				<Route path="flightDetails" element={<FlightDetails />} />
+				<Route path="/flight-details/:flightId" element={<FlightDetails />} />
 				<Route path="payment" element={<PaymentOption />} />
 				<Route path="paystack" element={<PayStack />} />
 				<Route path="bookFlight" element={<BookFlight />} />
