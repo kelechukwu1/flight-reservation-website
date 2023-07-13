@@ -79,12 +79,12 @@ const SelectOutbound = () => {
 				</div>
 				<div className=" my-5 text-center">
 					<h1 className="text-white text-2xl">
-						{`${formattedDate} | ${travelers} Traveller(s) | 2 Flights Available Today`}
+						{`${formattedDate} | ${travelers} Traveller(s) | 2 Flights Available`}
 					</h1>
 				</div>
 			</div>
 
-			<div className="p-7 md:p-20">
+			<div className="p-7 md:p-20 mx-1">
 				<nav>
 					<div onClick={handleClick}>
 						<div className="flex mt-3">

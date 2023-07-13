@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -14,9 +14,17 @@ const Login = () => {
 			await signInWithEmailAndPassword(auth, email, password);
 			navigate("/FlightForm");
 			console.log(email, "logged in");
-			console.log(auth);
 		} catch (err) {
-			console.error(err.message);
+			setLoginErr(err.message);
+		}
+	};
+
+	const loginWithGoogle = async () => {
+		try {
+			await loginWithGoogle(auth, signInWithPopup);
+			navigate("/FlightForm");
+			console.log(email, "logged in with google");
+		} catch (err) {
 			setLoginErr(err.message);
 		}
 	};
@@ -80,7 +88,7 @@ const Login = () => {
 						<hr className="border-gray-500" />
 					</div>
 					<div>
-						<Link to={"/FlightForm"}>
+						<Link onClick={loginWithGoogle}>
 							<div className="w-full py-3 bg-slate-200 text-xl md:text-2xl rounded border justify-center items-center mt-5 hover:scale-105 duration-300">
 								{/* google svg logo here */}
 								Login with Google

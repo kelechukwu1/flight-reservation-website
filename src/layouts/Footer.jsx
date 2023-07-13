@@ -41,15 +41,15 @@ const Footer = () => {
 							<Link to="#">Inflight Magazines</Link>
 						</div>
 						<div className="right box px-4 lg:pt-8">
-							<div className="media-icons flex gap-4">
+							<div className="media-icons flex gap-10">
 								<div>
 									<a href="#">
-										<i className="bx bxl-facebook text-6xl"></i>
+										<i className="bx bxl-twitter text-6xl"></i>
 									</a>
 								</div>
 								<div>
 									<a href="#">
-										<i className="bx bxl-whatsapp text-6xl"></i>
+										<i className="bx bxl-facebook text-6xl"></i>
 									</a>
 								</div>
 								<div>
@@ -62,11 +62,6 @@ const Footer = () => {
 										<i className="bx bxl-instagram text-6xl"></i>
 									</a>
 								</div>
-								<div>
-									<a href="#">
-										<i className="bx bxl-slack text-6xl"></i>
-									</a>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -74,12 +69,11 @@ const Footer = () => {
 				<div className="bottom p-4">
 					<p className="justify-center text-center text-2xl font-semibold">
 						Copyright &copy; <span id="year"></span>{" "}
-						<Link to="/">Kelechukwu</Link> All Rights Reserved.
+						<Link to="/">Kelechukwu</Link>
 					</p>
 				</div>
 			</footer>
 		</div>
 	);
 };
-
 export default Footer;
