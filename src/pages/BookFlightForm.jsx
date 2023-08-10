@@ -2,16 +2,42 @@ import { Form, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store";
+import { db } from "../main";
+import { getDocs, collection } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 
 import { basicSchema } from "../schemas/Schema";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const BookFlightForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const id = uuidv4();
+
+	//set state for firestore
+	const [initialFormValues, setInitialFormValues] = useState([]);
+	//get initial form values from firestore collection
+	const initialFormValueRef = collection(db, "flightDetails");
+
+	useEffect(() => {
+		const getInitialFormValues = async () => {
+			//read firestore data
+			try {
+				const data = await getDocs(initialFormValueRef);
+				const filteredData = data.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+				}));
+				console.log(filteredData);
+			} catch (err) {
+				console.error(err);
+			}
+			//set firestore data
+		};
+		getInitialFormValues();
+	}, []);
+
 	//custom onChange function and useState
 	const [returnDate, setReturnDate] = useState("");
 	const [departureDate, setDepartureDate] = useState("");
@@ -45,7 +71,6 @@ const BookFlightForm = () => {
 		}
 		handleChange(e);
 	};
-
 	const { touched, handleBlur, handleChange, handleSubmit, values, errors } =
 		useFormik({
 			initialValues: {
@@ -307,6 +332,5 @@ const BookFlightForm = () => {
 			<hr className="bg-white" />
 		</>
 	);
-
 };
 export default BookFlightForm;

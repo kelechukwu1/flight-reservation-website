@@ -11,9 +11,9 @@ const NewsLetter = () => {
 					Enter your email and we'll send them your way.
 				</p>
 				<div className="md:flex  md:px-52 mt-5 justify-center">
-					<div className=" rounded text-2xl text-white md:mr-3">
+					<div className=" rounded text-white md:mr-3">
 						<input
-							className="py-9 lg:px-32 px-3 my-2 w-full md:w-[30rem] lg:w-[50rem] border border-gray-400 focus:outline-none text-gray-500 text-2xl"
+							className="text-2xl py-9 lg:px-32 px-3 my-2 w-full md:w-[30rem] lg:w-[50rem] border border-gray-400 focus:outline-none text-gray-500"
 							type="text"
 							placeholder="Enter your email address."
 						/>

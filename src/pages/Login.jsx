@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../config/firebase";
+import { auth } from "../main";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
