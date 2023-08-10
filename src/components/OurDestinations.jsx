@@ -18,7 +18,7 @@ const OurDestinations = () => {
 
 				<div>
 					<h5 className="text-gray-300 md:mb-10 mt-3 text-2xl text-center">
-						<b>We are ready to fly with with you.</b>
+						<b>We are ready to fly with you.</b>
 					</h5>
 				</div>
 
