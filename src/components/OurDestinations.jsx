@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import { v4 } from "uuid";
 
 const OurDestinations = () => {
-	const images = ["/3.jpg", "/3.jpg", "/3.jpg"];
+	const images = ["/1.jpg", "/3.jpg", "/2.jpg"];
 	return (
 		<>
 			<div
@@ -39,7 +39,7 @@ const OurDestinations = () => {
 					</div>
 					<div className="md:flex">
 						<div className="max-w-lg">
-							<Carousel autoSlide={true} autoSlideInterval={1000}>
+							<Carousel autoSlide={true} autoSlideInterval={2000}>
 								{images.map((src) => (
 									<img key={`${src + v4}`} src={src} />
 								))}
