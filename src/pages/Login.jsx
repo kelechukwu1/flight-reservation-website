@@ -44,7 +44,7 @@ const Login = () => {
 	}, [loginErr]);
 	return (
 		<section className="flex items-center justify-center">
-			<div className="bg-gray-100 lex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center py-[5rem]">
+			<div className="bg-gray-200 lex rounded-xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center py-[5rem]">
 				<div className="w-full md:w-1/2 px-12 py-4 text-center items-center">
 					<div className="font-bold text-3xl md:text-5xl text-slate-900">
 						Login
