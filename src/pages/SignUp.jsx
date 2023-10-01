@@ -43,8 +43,8 @@ const SignUp = () => {
 	}, [signupErr]);
 
 	return (
-		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
-			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
+		<section className="flex items-center justify-center">
+			<div className="bg-gray-200 flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
 				<div className="w-full md:w-1/2 px-12 py-4 text-center items-center">
 					<div className="font-bold text-3xl md:text-5xl text-slate-900">
 						Sign Up
