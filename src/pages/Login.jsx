@@ -43,8 +43,8 @@ const Login = () => {
 		};
 	}, [loginErr]);
 	return (
-		<section className="bg-gray-200 min-h-[50rem] flex items-center justify-center">
-			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center">
+		<section className="bg-gray-200 h-screen flex items-center justify-center">
+			<div className="bg-white flex rounded-2xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center py-[10rem]">
 				<div className="w-full md:w-1/2 px-12 py-4 text-center items-center">
 					<div className="font-bold text-3xl md:text-5xl text-slate-900">
 						Login

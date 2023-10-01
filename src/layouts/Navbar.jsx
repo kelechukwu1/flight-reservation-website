@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 
 const NavBar = () => {
@@ -22,6 +22,15 @@ const NavBar = () => {
 		},
 	];
 	const [open, setOpen] = useState(true);
+
+	// Get the current location using the useLocation hook
+	const location = useLocation();
+
+	// Define an array of paths where you want to hide the footer
+	const hideFooter = ["/signUp", "/login"];
+
+	// Check if the current location's pathname is in the hideFooter array
+	const shouldHideFooter = hideFooter.includes(location.pathname);
 
 	return (
 		<>
@@ -104,11 +113,11 @@ const NavBar = () => {
 					</div>
 				</nav>
 			</header>
-
 			<main>
 				<Outlet />
 			</main>
-			<Footer />
+			{/* Conditionally render the footer */}
+			{!shouldHideFooter && <Footer />}
 		</>
 	);
 };
