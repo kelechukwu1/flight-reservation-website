@@ -43,14 +43,14 @@ const Login = () => {
 		};
 	}, [loginErr]);
 	return (
-		<section className="flex items-center justify-center">
+		<section className="bg-gray-100 h-[93vh] flex justify-center items-center">
 			<div className="bg-gray-200 rounded-xl shadow-lg w-[30rem] md:w-full md:mx-20 lg:mx-40 p-3 my-5 items-center py-[5rem]">
 				<div className="w-full md:w-1/2 px-12 py-4 text-center items-center">
 					<div className="font-bold text-3xl md:text-5xl text-slate-900">
 						Login
 					</div>
 					<div className="mt-4 text-slate-900 text-xl md:text-2xl">
-						If you already have an account, easily log in
+						If you already have an account, easily login
 					</div>
 
 					<form className="flex flex-col gap-4">
@@ -58,7 +58,7 @@ const Login = () => {
 							onChange={(e) => {
 								setEmail(e.target.value);
 							}}
-							className="p-3 md:text-2xl mt-8 rounded border text-xl"
+							className="p-5 md:text-2xl mt-8 rounded border text-xl"
 							type="email"
 							name="email"
 							placeholder="Email"
@@ -68,7 +68,7 @@ const Login = () => {
 								onChange={(e) => {
 									setPassword(e.target.value);
 								}}
-								className="w-full md:text-2xl p-3 rounded border text-xl"
+								className="w-full md:text-2xl p-5 rounded border text-xl"
 								type="password"
 								name="password"
 								placeholder="Password"
@@ -76,7 +76,7 @@ const Login = () => {
 							{/* eye svg logo here */}
 						</div>
 						<Link onClick={loginWithEmailAndPassword}>
-							<div className="bg-slate-900 text-white md:text-2xl text-xl font-semibold py-3 rounded hover:scale-105 duration-300">
+							<div className="bg-slate-900 text-white md:text-2xl text-xl font-semibold py-5 rounded hover:scale-105 duration-300">
 								Login
 							</div>
 						</Link>
