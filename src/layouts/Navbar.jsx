@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Link, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
@@ -122,10 +122,3 @@ const NavBar = () => {
 	);
 };
 export default NavBar;
-{
-	/* <BookFlightForm />
-<OurDestinations />
-<PeaceAdvantage />
-<Vision />
-<NewsLetter /> */
-}

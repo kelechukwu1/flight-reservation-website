@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
-		<div>
+		<>
 			<footer>
 				<div className="content bg-slate-900">
 					<div className="left box">
@@ -65,15 +65,15 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="bottom p-4">
-					<p className="justify-center text-center text-2xl font-semibold">
-						Copyright &copy; <span id="year"></span>{" "}
-						<Link to="/">Kelechukwu</Link>
-					</p>
+					<div className="bottom p-4 py-10">
+						<p className="flex justify-center text-center text-2xl font-semibold">
+							Copyright &copy; <span id="year"></span>{" "}
+							<Link to="/">Kelechukwu</Link>
+						</p>
+					</div>
 				</div>
 			</footer>
-		</div>
+		</>
 	);
 };
 export default Footer;
